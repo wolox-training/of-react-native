@@ -1,19 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
+
+import Book from './src/app/components/Book';
+import styles from './styles';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>WBooks App</Text>
+      <Book 
+        bookImage={'http://wolox-training.s3.amazonaws.com/uploads/6942334-M.jpg'} 
+        bookTitle={'Locked in time'} 
+        bookAuthor={'Lois Dunca'} 
+      />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
