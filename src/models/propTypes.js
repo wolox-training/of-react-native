@@ -7,5 +7,5 @@ export const bookProps = shape({
   genre: string,
   publisher: string,
   year: string,
-  image_url: string
+  imageUrl: string
 });
