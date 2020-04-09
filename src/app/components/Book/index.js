@@ -1,6 +1,6 @@
 import React from 'react';
-import {string} from 'prop-types';
-import {Text, View, Image, ActivityIndicator} from 'react-native';
+import { string } from 'prop-types';
+import { Text, View, Image } from 'react-native';
 
 import styles from './styles';
 
