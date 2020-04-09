@@ -4,26 +4,25 @@ import {Text, View, Image, ActivityIndicator} from 'react-native';
 
 import styles from './styles';
 
-function Book({bookImage, bookTitle, bookAuthor}) {
+function Book({ image, title, author }) {
   return (
     <View style={styles.book}>
       <Image
-        source={{uri: bookImage}}
+        source={{uri: image}}
         style={styles.image}
-        PlaceholderContent={<ActivityIndicator />}
       />
-      <View style={styles.bookInfo}>
-        <Text style={styles.title}>{bookTitle}</Text>
-        <Text>{bookAuthor}</Text>
+      <View>
+        <Text style={styles.title}>{title}</Text>
+        <Text>{author}</Text>
       </View>
     </View>
   );
 }
 
 Book.propTypes = {
-  bookImage: string,
-  bookTitle: string.isRequired,
-  bookAuthor: string.isRequired,
+  image: string,
+  title: string.isRequired,
+  author: string.isRequired,
 };
 
 export default Book;

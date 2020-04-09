@@ -6,13 +6,13 @@ module.exports = {
       {
         "root": ["./src"],
         "alias": {
-          "~components": "./src/app/components",
-          "~screens": "./src/app/screens",
-          "~config": "./src/config",
-          "~constants": "./src/constants",
-          "~redux": "./src/redux",
-          "~services": "./src/services",
-          "~utils": "./src/utils"
+          "@components": "./src/app/components",
+          "@screens": "./src/app/screens",
+          "@config": "./src/config",
+          "@constants": "./src/constants",
+          "@redux": "./src/redux",
+          "@services": "./src/services",
+          "@utils": "./src/utils"
         }
       }
     ]

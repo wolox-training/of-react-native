@@ -15,9 +15,6 @@ export default StyleSheet.create({
     shadowOpacity: 0.9,
     width: 350,
   },
-  bookInfo: {
-    flexDirection: 'column',
-  },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
