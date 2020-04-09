@@ -7,10 +7,7 @@ import styles from './styles';
 function Book({ image, title, author }) {
   return (
     <View style={styles.book}>
-      <Image
-        source={{uri: image}}
-        style={styles.image}
-      />
+      <Image source={{ uri: image }} style={styles.image} />
       <View>
         <Text style={styles.title}>{title}</Text>
         <Text>{author}</Text>
@@ -22,7 +19,7 @@ function Book({ image, title, author }) {
 Book.propTypes = {
   image: string,
   title: string.isRequired,
-  author: string.isRequired,
+  author: string.isRequired
 };
 
 export default Book;

@@ -11,17 +11,17 @@ export default StyleSheet.create({
     margin: 20,
     padding: 20,
     shadowColor: COLORS.black,
-    shadowOffset: {width: 1, height: 2},
+    shadowOffset: { width: 1, height: 2 },
     shadowOpacity: 0.9,
-    width: 350,
+    width: 350
   },
   title: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   image: {
     height: 100,
     marginRight: 15,
-    width: 70,
-  },
+    width: 70
+  }
 });
