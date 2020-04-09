@@ -13,7 +13,7 @@ module.exports = {
           "@redux": "./src/redux",
           "@services": "./src/services",
           "@utils": "./src/utils",
-          "@models": "./src/models"
+          "@propTypes": "./src/propTypes"
         }
       }
     ]

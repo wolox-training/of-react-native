@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { arrayOf } from 'prop-types';
 import { FlatList, SafeAreaView } from 'react-native';
 
-import { bookProps } from '@models/propTypes';
+import { bookProps } from '@propTypes/book';
 import Book from '../Book';
 
 import styles from './styles';

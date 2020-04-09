@@ -7,7 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint src --ext .js,.ts,.jsx,.tsx"
   },
   "dependencies": {
     "babel-plugin-module-resolver": "^4.0.0",
