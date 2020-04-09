@@ -1,0 +1,20 @@
+name: Github Actions CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out Git repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10
+    
+    - name: Run Lint
+      run: |
+        yarn
+        yarn run lint
