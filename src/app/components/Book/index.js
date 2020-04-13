@@ -16,6 +16,12 @@ function Book({ image, title, author }) {
   );
 }
 
+Book.defaultProps = {
+  image: '',
+  title: '',
+  author: ''
+};
+
 Book.propTypes = {
   image: string,
   title: string.isRequired,
