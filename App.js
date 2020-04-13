@@ -1,14 +1,20 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import { View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import { BOOKS } from './constants';
-import styles from './styles';
-import BookDetail from '@components/BookDetail';
+import LibraryScreen from '@screens/LibraryScreen';
+import BookDetailScreen from '@screens/BookDetailScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <BookDetail book={BOOKS[0]} />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Library">
+        <Stack.Screen name="Library" component={LibraryScreen} />
+        <Stack.Screen name="BookDetail" component={BookDetailScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }

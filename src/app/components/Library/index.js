@@ -1,16 +1,23 @@
 import React, { useCallback } from 'react';
 import { arrayOf } from 'prop-types';
-import { FlatList, SafeAreaView } from 'react-native';
+import { FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
 
 import { bookProps } from '@propTypes/book';
 import Book from '@components/Book';
 
 import styles from './styles';
 
-function Library({ books }) {
+function Library({ books, navigation }) {
+  //const onBookPress = useCallback(() => navigation.push('DetailBook', {}), []);
+
   const renderBook = useCallback(
-    ({ item }) => <Book title={item.title} author={item.author} image={item.imageUrl} />,
-    []
+    ({ item }) => (
+    <TouchableOpacity
+      onPress={(item) => navigation.push('DetailBook', { book: item})}
+    >
+      <Book title={item.title} author={item.author} image={item.imageUrl}/>
+    </TouchableOpacity>
+    ),[]
   );
 
   const keyExtractor = useCallback((item) => item.id.toString(), []);
