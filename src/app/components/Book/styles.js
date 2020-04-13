@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { COLORS } from '@constants/colors';
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   book: {
     backgroundColor: COLORS.white,
     borderRadius: 5,
@@ -25,3 +25,5 @@ export default StyleSheet.create({
     width: 70
   }
 });
+
+export default styles;

@@ -3,7 +3,7 @@ import { arrayOf } from 'prop-types';
 import { FlatList, SafeAreaView } from 'react-native';
 
 import { bookProps } from '@propTypes/book';
-import Book from '../Book';
+import Book from '@components/Book';
 
 import styles from './styles';
 
@@ -13,11 +13,11 @@ function Library({ books }) {
     []
   );
 
-  const extractBookId = useCallback((item) => item.id.toString(), []);
+  const keyExtractor = useCallback((item) => item.id.toString(), []);
 
   return (
     <SafeAreaView style={styles.library}>
-      <FlatList data={books} renderItem={renderBook} keyExtractor={extractBookId} />
+      <FlatList data={books} renderItem={renderBook} keyExtractor={keyExtractor} />
     </SafeAreaView>
   );
 }

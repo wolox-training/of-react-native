@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
 
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   library: {
     flex: 1,
-    marginTop: 20,
-    marginBottom: 20
+    marginVertical: 20
   }
 });
+
+export default styles;
