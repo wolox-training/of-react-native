@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
 import Library from '@components/Library';
 import { BOOKS } from './constants';
@@ -7,9 +7,9 @@ import styles from './styles';
 
 function LibraryScreen({ navigation }) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Library books={BOOKS} navigation={navigation} />
-    </View>
+    </SafeAreaView>
   );
 }
 

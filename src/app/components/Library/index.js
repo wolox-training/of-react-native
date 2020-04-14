@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { arrayOf } from 'prop-types';
-import { FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
+import { FlatList, TouchableOpacity, View } from 'react-native';
 
 import { bookProps } from '@propTypes/book';
 import Book from '@components/Book';
@@ -21,9 +21,9 @@ function Library({ books, navigation }) {
   const keyExtractor = useCallback((item) => item.id.toString(), []);
 
   return (
-    <SafeAreaView style={styles.library}>
+    <View style={styles.library}>
       <FlatList data={books} renderItem={renderBook} keyExtractor={keyExtractor} />
-    </SafeAreaView>
+    </View>
   );
 }
 

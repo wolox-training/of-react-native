@@ -11,11 +11,11 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName={ROUTES.Library}>
-        <Stack.Screen name={ROUTES.Library} component={LibraryScreen} />
-        <Stack.Screen name={ROUTES.BookDetail} component={BookDetailScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName={ROUTES.Library}>
+          <Stack.Screen name={ROUTES.Library} component={LibraryScreen} />
+          <Stack.Screen name={ROUTES.BookDetail} component={BookDetailScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
   );
 }
