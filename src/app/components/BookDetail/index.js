@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import { Text, View, Image } from 'react-native';
 
 import { bookProps } from '@propTypes/book';
 
@@ -20,10 +20,9 @@ function BookDetail({ book }) {
           <Text>{genre}</Text>
         </View>
       </View>
-      <CustomButton text='ADD TO WISHLIST' style={styles.addButton} textStyle={styles.addButtonText} />
-      <CustomButton text='RENT' style={styles.rentButton} textStyle={styles.rentButtonText} />
+      <CustomButton text="ADD TO WISHLIST" style={styles.addButton} textStyle={styles.addButtonText} />
+      <CustomButton text="RENT" style={styles.rentButton} textStyle={styles.rentButtonText} />
     </View>
-    
   );
 }
 

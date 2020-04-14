@@ -4,20 +4,20 @@ import { FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
 
 import { bookProps } from '@propTypes/book';
 import Book from '@components/Book';
+import { ROUTES } from '@constants/routes';
 
 import styles from './styles';
 
 function Library({ books, navigation }) {
-  //const onBookPress = useCallback(() => navigation.push('DetailBook', {}), []);
+  // const onBookPress = useCallback(() => navigation.push('DetailBook', {}), []);
 
   const renderBook = useCallback(
     ({ item }) => (
-    <TouchableOpacity
-      onPress={() => navigation.navigate('BookDetail', { book: item })}
-    >
-      <Book title={item.title} author={item.author} image={item.imageUrl}/>
-    </TouchableOpacity>
-    ),[]
+      <TouchableOpacity onPress={() => navigation.navigate(ROUTES.BookDetail, { book: item })}>
+        <Book title={item.title} author={item.author} image={item.imageUrl} />
+      </TouchableOpacity>
+    ),
+    [navigation]
   );
 
   const keyExtractor = useCallback((item) => item.id.toString(), []);

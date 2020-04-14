@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 
-import styles from './styles';
 import BookDetail from '@components/BookDetail';
+import styles from './styles';
 
-function BookDetailScreen({ route, navigation }) {
+function BookDetailScreen({ route }) {
   return (
     <View style={styles.container}>
-      <BookDetail book={route.params.book}/>
+      <BookDetail book={route?.params?.book} />
     </View>
   );
 }
