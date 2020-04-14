@@ -7,11 +7,11 @@ import styles from './styles';
 import CustomButton from '../CustomButton';
 
 function BookDetail({ book }) {
-  const { image, title, author, year, genre } = book;
+  const { imageUrl, title, author, year, genre } = book;
   return (
     <View style={styles.container}>
       <View style={styles.book}>
-        <Image source={{ uri: image }} style={styles.image} />
+        <Image source={{ uri: imageUrl }} style={styles.image} />
         <View>
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.available}>Available</Text>

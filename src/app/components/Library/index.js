@@ -13,7 +13,7 @@ function Library({ books, navigation }) {
   const renderBook = useCallback(
     ({ item }) => (
     <TouchableOpacity
-      onPress={(item) => navigation.push('DetailBook', { book: item})}
+      onPress={() => navigation.navigate('BookDetail', { book: item })}
     >
       <Book title={item.title} author={item.author} image={item.imageUrl}/>
     </TouchableOpacity>
