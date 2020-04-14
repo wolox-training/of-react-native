@@ -9,8 +9,6 @@ import { ROUTES } from '@constants/routes';
 import styles from './styles';
 
 function Library({ books, navigation }) {
-  // const onBookPress = useCallback(() => navigation.push('DetailBook', {}), []);
-
   const renderBook = useCallback(
     ({ item }) => (
       <TouchableOpacity onPress={() => navigation.navigate(ROUTES.BookDetail, { book: item })}>
