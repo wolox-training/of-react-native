@@ -20,16 +20,8 @@ function BookDetailScreen({ route }) {
             <Text>{genre}</Text>
           </View>
         </View>
-        <CustomButton
-          text="ADD TO WISHLIST"
-          style={styles.addButton}
-          textStyle={styles.addButtonText}
-        />
-        <CustomButton
-          text="RENT"
-          style={styles.rentButton}
-          textStyle={styles.rentButtonText}
-        />
+        <CustomButton text="ADD TO WISHLIST" style={styles.addButton} textStyle={styles.addButtonText} />
+        <CustomButton text="RENT" style={styles.rentButton} textStyle={styles.rentButtonText} />
       </View>
     </SafeAreaView>
   );
