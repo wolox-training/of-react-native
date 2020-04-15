@@ -1,13 +1,11 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
-
-import { bookProps } from '@propTypes/book';
+import { string } from 'prop-types';
 
 import styles from './styles';
-import CustomButton from '../CustomButton';
+import CustomButton from '@components/CustomButton';
 
-function BookDetail({ book }) {
-  const { imageUrl, title, author, year, genre } = book;
+function BookDetail({ imageUrl, title, author, year, genre }) {
   return (
     <View style={styles.container}>
       <View style={styles.book}>
@@ -20,14 +18,26 @@ function BookDetail({ book }) {
           <Text>{genre}</Text>
         </View>
       </View>
-      <CustomButton text="ADD TO WISHLIST" style={styles.addButton} textStyle={styles.addButtonText} />
-      <CustomButton text="RENT" style={styles.rentButton} textStyle={styles.rentButtonText} />
+      <CustomButton
+        text="ADD TO WISHLIST"
+        style={styles.addButton}
+        textStyle={styles.addButtonText}
+      />
+      <CustomButton
+        text="RENT"
+        style={styles.rentButton}
+        textStyle={styles.rentButtonText}
+      />
     </View>
   );
 }
 
 BookDetail.propTypes = {
-  book: bookProps
+  imageUrl: string,
+  title: string,
+  author: string,
+  year: string,
+  genre: string
 };
 
 export default BookDetail;

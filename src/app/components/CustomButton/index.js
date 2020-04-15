@@ -6,8 +6,8 @@ import styles from './styles';
 
 function CustomButton({ text, onPress, style, textStyle }) {
   return (
-    <TouchableOpacity style={[style, styles.button]} onPress={onPress}>
-      <Text style={[textStyle, styles.buttonText]}>{text}</Text>
+    <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
+      <Text style={[styles.buttonText, textStyle]}>{text}</Text>
     </TouchableOpacity>
   );
 }

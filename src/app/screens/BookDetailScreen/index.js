@@ -5,9 +5,16 @@ import BookDetail from '@components/BookDetail';
 import styles from './styles';
 
 function BookDetailScreen({ route }) {
+  const { imageUrl, title, author, year, genre } = route?.params?.book;
   return (
     <SafeAreaView style={styles.container}>
-      <BookDetail book={route?.params?.book} />
+      <BookDetail
+        imageUrl={imageUrl}
+        title={title}
+        author={author}
+        year={year}
+        genre={genre}
+      />
     </SafeAreaView>
   );
 }
