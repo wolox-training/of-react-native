@@ -7,6 +7,9 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.grayLight,
     flex: 1,
     justifyContent: 'center'
+  },
+  library: {
+    marginVertical: 20
   }
 });
 

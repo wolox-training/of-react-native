@@ -1,7 +1,7 @@
 import React from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { View, Text, Image, SafeAreaView, ScrollView } from 'react-native';
 
-import BookDetail from '@components/BookDetail';
+import CustomButton from '@components/CustomButton';
 import CommentSection from '@components/CommentSection';
 
 import { COMMENTS } from './constants';
@@ -12,13 +12,28 @@ function BookDetailScreen({ route }) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <BookDetail
-          imageUrl={imageUrl}
-          title={title}
-          author={author}
-          year={year}
-          genre={genre}
-        />
+        <View style={styles.detailContainer}>
+          <View style={styles.book}>
+            <Image source={{ uri: imageUrl }} style={styles.image} />
+            <View>
+              <Text style={styles.title}>{title}</Text>
+              <Text style={styles.available}>Available</Text>
+              <Text>{author}</Text>
+              <Text>{year}</Text>
+              <Text>{genre}</Text>
+            </View>
+          </View>
+          <CustomButton
+            text="ADD TO WISHLIST"
+            style={styles.addButton}
+            textStyle={styles.addButtonText}
+          />
+          <CustomButton
+            text="RENT"
+            style={styles.rentButton}
+            textStyle={styles.rentButtonText}
+          />
+        </View>
         <CommentSection comments={COMMENTS} />
       </ScrollView>
     </SafeAreaView>
