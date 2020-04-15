@@ -2,8 +2,8 @@ import React from 'react';
 import { Text, View, Image } from 'react-native';
 import { string } from 'prop-types';
 
-import styles from './styles';
 import CustomButton from '@components/CustomButton';
+import styles from './styles';
 
 function BookDetail({ imageUrl, title, author, year, genre }) {
   return (
@@ -18,16 +18,8 @@ function BookDetail({ imageUrl, title, author, year, genre }) {
           <Text>{genre}</Text>
         </View>
       </View>
-      <CustomButton
-        text="ADD TO WISHLIST"
-        style={styles.addButton}
-        textStyle={styles.addButtonText}
-      />
-      <CustomButton
-        text="RENT"
-        style={styles.rentButton}
-        textStyle={styles.rentButtonText}
-      />
+      <CustomButton text="ADD TO WISHLIST" style={styles.addButton} textStyle={styles.addButtonText} />
+      <CustomButton text="RENT" style={styles.rentButton} textStyle={styles.rentButtonText} />
     </View>
   );
 }

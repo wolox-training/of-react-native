@@ -8,13 +8,7 @@ function BookDetailScreen({ route }) {
   const { imageUrl, title, author, year, genre } = route?.params?.book;
   return (
     <SafeAreaView style={styles.container}>
-      <BookDetail
-        imageUrl={imageUrl}
-        title={title}
-        author={author}
-        year={year}
-        genre={genre}
-      />
+      <BookDetail imageUrl={imageUrl} title={title} author={author} year={year} genre={genre} />
     </SafeAreaView>
   );
 }
