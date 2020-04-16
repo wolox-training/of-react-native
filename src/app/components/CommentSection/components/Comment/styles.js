@@ -20,9 +20,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   text: {
-    fontSize: 15,
-    flexWrap: 'wrap',
-    //width: Dimensions.get('screen').width - 100
+    fontSize: 15
   }
 });
 
