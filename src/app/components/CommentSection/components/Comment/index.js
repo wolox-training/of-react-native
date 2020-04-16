@@ -8,7 +8,7 @@ function Comment({ image, text, user }) {
   return (
     <View style={styles.container}>
       <Image source={{ uri: image }} style={styles.image} />
-      <View style={styles.info}>
+      <View style={styles.textContainer}>
         <Text style={styles.user}>{user}</Text>
         <Text style={styles.text}>{text}</Text>
       </View>

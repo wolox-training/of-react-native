@@ -8,7 +8,7 @@ function Book({ image, title, author }) {
   return (
     <View style={styles.book}>
       <Image source={{ uri: image }} style={styles.image} />
-      <View>
+      <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
         <Text>{author}</Text>
       </View>

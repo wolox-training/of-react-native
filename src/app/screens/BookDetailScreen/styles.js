@@ -8,6 +8,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center'
   },
+  scrollArea: {
+    flex: 1,
+    width: '100%'
+  },
   detailContainer: {
     backgroundColor: COLORS.white,
     borderRadius: 5,

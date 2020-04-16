@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     borderRadius: 5,
     elevation: 1,
-    flex: 0,
     flexDirection: 'row',
     margin: 20,
     padding: 20,
@@ -22,6 +21,9 @@ const styles = StyleSheet.create({
     height: 100,
     marginRight: 15,
     width: 70
+  },
+  textContainer: {
+    flex: 1
   }
 });
 

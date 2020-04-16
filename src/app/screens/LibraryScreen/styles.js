@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   library: {
-    marginVertical: 20
+    marginVertical: 20,
+    width: '100%'
   }
 });
 

@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     elevation: 1,
     flex: 0,
     margin: 20,
+    marginTop: 0,
     padding: 20,
     shadowColor: COLORS.black,
     shadowOffset: { width: 1, height: 2 },

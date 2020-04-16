@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,8 +11,7 @@ const styles = StyleSheet.create({
     marginRight: 15,
     width: 45
   },
-  info: {
-    flexDirection: 'column',
+  textContainer: {
     flex: 1
   },
   user: {
@@ -20,7 +19,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   text: {
-    fontSize: 15
+    fontSize: 15,
+    flex: 1,
+    flexShrink: 1
   }
 });
 
