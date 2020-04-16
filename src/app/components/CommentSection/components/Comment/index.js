@@ -1,17 +1,18 @@
 import React from 'react';
 import { string } from 'prop-types';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, Dimensions } from 'react-native';
 
 import styles from './styles';
 
 function Comment({ image, text, user }) {
+  const width = Dimensions.get('window').width;
   debugger;
   return (
     <View style={styles.container}>
       <Image source={{ uri: image }} style={styles.image} />
-      <View>
+      <View style={styles.info}>
         <Text style={styles.user}>{user}</Text>
-        <Text>{text}</Text>
+        <Text style={styles.text}>{text}</Text>
       </View>
     </View>
   );

@@ -1,13 +1,9 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     marginBottom: 15
-  },
-  user: {
-    fontSize: 15,
-    fontWeight: 'bold'
   },
   image: {
     borderRadius: 50,
@@ -15,10 +11,18 @@ const styles = StyleSheet.create({
     marginRight: 15,
     width: 45
   },
+  info: {
+    flexDirection: 'column',
+    flex: 1
+  },
+  user: {
+    fontSize: 15,
+    fontWeight: 'bold'
+  },
   text: {
     fontSize: 15,
-    flex: 1,
-    flexShrink: 1
+    flexWrap: 'wrap',
+    //width: Dimensions.get('screen').width - 100
   }
 });
 

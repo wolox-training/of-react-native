@@ -12,8 +12,7 @@ const styles = StyleSheet.create({
     padding: 20,
     shadowColor: COLORS.black,
     shadowOffset: { width: 1, height: 2 },
-    shadowOpacity: 0.9,
-    width: 350
+    shadowOpacity: 0.9
   },
   title: {
     fontSize: 18,
