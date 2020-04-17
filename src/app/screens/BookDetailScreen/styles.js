@@ -8,6 +8,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center'
   },
+  scrollArea: {
+    flex: 1,
+    width: '100%'
+  },
   detailContainer: {
     backgroundColor: COLORS.white,
     borderRadius: 5,
@@ -17,8 +21,7 @@ const styles = StyleSheet.create({
     padding: 20,
     shadowColor: COLORS.black,
     shadowOffset: { width: 1, height: 2 },
-    shadowOpacity: 0.9,
-    width: 350
+    shadowOpacity: 0.9
   },
   book: {
     flexDirection: 'row',
