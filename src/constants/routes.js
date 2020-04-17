@@ -1,4 +1,4 @@
 export const ROUTES = {
   Library: 'Library',
-  BookDetail: 'BookDetail'
+  BookDetail: 'Book Detail'
 };
