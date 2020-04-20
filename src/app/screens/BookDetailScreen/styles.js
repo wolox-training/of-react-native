@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: COLORS.grayLight,
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingTop: 20
   },
   scrollArea: {
     flex: 1,
