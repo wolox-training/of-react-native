@@ -1,5 +1,4 @@
 import React from 'react';
-import { string, func } from 'prop-types';
 import { SafeAreaView, StatusBar } from 'react-native';
 import { Header } from '@react-navigation/stack';
 
