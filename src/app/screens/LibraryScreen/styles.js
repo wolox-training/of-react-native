@@ -6,10 +6,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: COLORS.grayLight,
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingTop: 20
   },
   library: {
-    marginVertical: 20,
     width: '100%'
   }
 });
