@@ -10,7 +10,7 @@ import styles from './styles';
 function LibraryScreen({ navigation }) {
   const renderBook = useCallback(
     ({ item }) => (
-      <TouchableOpacity onPress={() => navigation.navigate(ROUTES.BookDetail, { book: item })}>
+      <TouchableOpacity onPress={() => navigation.navigate(ROUTES.BookDetail.name, { book: item })}>
         <Book title={item.title} author={item.author} image={item.imageUrl} />
       </TouchableOpacity>
     ),
