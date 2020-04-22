@@ -8,16 +8,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '@components/TabBarIcon';
 import { ROUTES } from '@constants/routes';
 import { COLORS } from '@constants/colors';
-
 import starActive from '@assets/toolbar/ic_wishlist_active.png';
 import starInactive from '@assets/toolbar/ic_wishlist.png';
 import libraryActive from '@assets/toolbar/ic_library_active.png';
 import libraryInactive from '@assets/toolbar/ic_library.png';
-
 import LibraryScreen from '@screens/LibraryScreen';
 import BookDetailScreen from '@screens/BookDetailScreen';
 import WishlistScreen from '@screens/WishlistScreen';
-
 import { stackNavigatorConfig } from '@utils/stackConfig';
 
 const LibraryStack = createStackNavigator();
