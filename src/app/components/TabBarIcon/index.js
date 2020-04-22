@@ -1,13 +1,19 @@
 import React from 'react';
 import { number, bool } from 'prop-types';
-import { Image } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  image: {
+    marginTop: 5
+  }
+});
 
 function TabBarIcon({ active, inactive, focused, size }) {
   return (
     <Image
       source={focused ? active : inactive}
       resizeMode="contain"
-      style={{ width: size, marginTop: 5 }}
+      style={[styles.image, { width: size }]}
     />
   );
 }

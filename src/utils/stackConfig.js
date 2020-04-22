@@ -30,10 +30,6 @@ export const stackNavigatorConfig = {
   headerBackImage: () => <Image source={backButton} style={styles.backImage} />,
   header: CustomHeader,
   headerBackground: () => (
-    <Image
-      source={icNavbar}
-      resizeMode="stretch"
-      style={[styles.background, StyleSheet.absoluteFill]}
-    />
+    <Image source={icNavbar} resizeMode="stretch" style={[styles.background, StyleSheet.absoluteFill]} />
   )
 };

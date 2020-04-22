@@ -8,22 +8,16 @@ import styles from './styles';
 
 function WishlistScreen() {
   const renderBook = useCallback(
-    ({ item }) => (
-      <Book title={item.title} author={item.author} image={item.imageUrl} />
-    ),
+    ({ item }) => <Book title={item.title} author={item.author} image={item.imageUrl} />,
     []
   );
 
-  const keyExtractor = useCallback(item => item.id.toString(), []);
+  const keyExtractor = useCallback((item) => item.id.toString(), []);
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.wishlist}>
-        <FlatList
-          data={WISHLIST}
-          renderItem={renderBook}
-          keyExtractor={keyExtractor}
-        />
+        <FlatList data={WISHLIST} renderItem={renderBook} keyExtractor={keyExtractor} />
       </View>
     </SafeAreaView>
   );
