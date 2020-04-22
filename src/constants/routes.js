@@ -6,5 +6,9 @@ export const ROUTES = {
   BookDetail: {
     name: 'BookDetail',
     title: 'Book Detail'
+  },
+  Wishlist: {
+    name: 'Wishlist',
+    title: 'Wishlist'
   }
 };
