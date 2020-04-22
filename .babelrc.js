@@ -14,8 +14,7 @@ module.exports = {
           "@services": "./src/services",
           "@utils": "./src/utils",
           "@propTypes": "./src/propTypes",
-          "@assets": './src/app/assets',
-          "@stacks": './src/app/stacks'
+          "@assets": './src/app/assets'
         }
       }
     ]
