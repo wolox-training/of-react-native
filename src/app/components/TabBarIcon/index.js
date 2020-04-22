@@ -15,10 +15,10 @@ function TabBarIcon({ active, inactive, focused, size }) {
 }
 
 TabBarIcon.propTypes = {
-  active: number,
-  inactive: number,
-  focused: bool,
-  size: number
+  active: number.isRequired,
+  inactive: number.isRequired,
+  focused: bool.isRequired,
+  size: number.isRequired
 };
 
 export default TabBarIcon;
