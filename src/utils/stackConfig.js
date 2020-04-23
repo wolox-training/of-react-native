@@ -6,30 +6,35 @@ import backButton from '@assets/Navigationbar/ic_back.png';
 import icNavbar from '@assets/General/bc_navbar.png';
 import CustomHeader from '@components/CustomHeader';
 
-const styles = StyleSheet.create({
-  header: {
-    height: 80
-  },
-  headerTitle: {
-    textTransform: 'uppercase'
-  },
-  backImage: {
-    height: 30,
-    width: 30
-  },
-  background: {
-    width: '100%'
-  }
-});
-
 export const stackNavigatorConfig = {
   gestureEnabled: true,
-  headerStyle: styles.header,
+  headerStyle: {
+    height: 80
+  },
   headerTintColor: COLORS.white,
-  headerTitleStyle: styles.headerTitle,
-  headerBackImage: () => <Image source={backButton} style={styles.backImage} />,
+  headerTitleStyle: {
+    textTransform: 'uppercase'
+  },
+  headerBackImage: () => (
+    <Image
+      source={backButton}
+      style={{
+        height: 30,
+        width: 30
+      }}
+    />
+  ),
   header: CustomHeader,
   headerBackground: () => (
-    <Image source={icNavbar} resizeMode="stretch" style={[styles.background, StyleSheet.absoluteFill]} />
+    <Image
+      source={icNavbar}
+      resizeMode="stretch"
+      style={[
+        {
+          width: '100%'
+        },
+        StyleSheet.absoluteFill
+      ]}
+    />
   )
 };
