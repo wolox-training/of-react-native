@@ -7,8 +7,7 @@ import { ROUTES } from '@constants/routes';
 import { BOOKS } from './constants';
 import styles from './styles';
 
-function LibraryScreen ({ navigation }) {
-
+function LibraryScreen({ navigation }) {
   const renderBook = useCallback(
     ({ item }) => (
       <TouchableOpacity onPress={() => navigation.navigate(ROUTES.BookDetail.name, { book: item })}>
