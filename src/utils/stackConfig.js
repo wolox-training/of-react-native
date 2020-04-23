@@ -1,10 +1,10 @@
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
 
 import { COLORS } from '@constants/colors';
 import backButton from '@assets/Navigationbar/ic_back.png';
-import icNavbar from '@assets/General/bc_navbar.png';
+import Background from '@components/Background';
 import CustomHeader from '@components/CustomHeader';
+import IconImage from '@components/IconImage';
 
 export const stackNavigatorConfig = {
   gestureEnabled: true,
@@ -15,26 +15,7 @@ export const stackNavigatorConfig = {
   headerTitleStyle: {
     textTransform: 'uppercase'
   },
-  headerBackImage: () => (
-    <Image
-      source={backButton}
-      style={{
-        height: 30,
-        width: 30
-      }}
-    />
-  ),
+  headerBackImage: () => <IconImage source={backButton} />,
   header: CustomHeader,
-  headerBackground: () => (
-    <Image
-      source={icNavbar}
-      resizeMode="stretch"
-      style={[
-        {
-          width: '100%'
-        },
-        StyleSheet.absoluteFill
-      ]}
-    />
-  )
+  headerBackground: Background
 };
