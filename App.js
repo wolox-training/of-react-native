@@ -1,56 +1,97 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import LibraryScreen from '@screens/LibraryScreen';
-import BookDetailScreen from '@screens/BookDetailScreen';
-import CustomHeader from '@components/CustomHeader';
+import TabBarIcon from '@components/TabBarIcon';
 import { ROUTES } from '@constants/routes';
 import { COLORS } from '@constants/colors';
+import starActive from '@assets/toolbar/ic_wishlist_active.png';
+import starInactive from '@assets/toolbar/ic_wishlist.png';
+import libraryActive from '@assets/toolbar/ic_library_active.png';
+import libraryInactive from '@assets/toolbar/ic_library.png';
+import LibraryScreen from '@screens/LibraryScreen';
+import BookDetailScreen from '@screens/BookDetailScreen';
+import { stackNavigatorConfig } from '@utils/stackConfig';
 
-import backButton from '@assets/Navigationbar/ic_back.png';
-import icNavbar from '@assets/General/bc_navbar.png';
+const LibraryStack = createStackNavigator();
+const WishlistStack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
-import styles from './styles';
+function LibraryStackScreen() {
+  return (
+    <LibraryStack.Navigator
+      initialRouteName={ROUTES.Library.name}
+      headerMode="float"
+      screenOptions={stackNavigatorConfig}>
+      <LibraryStack.Screen
+        name={ROUTES.Library.name}
+        component={LibraryScreen}
+        options={{ title: ROUTES.Library.title }}
+      />
+      <LibraryStack.Screen
+        name={ROUTES.BookDetail.name}
+        component={BookDetailScreen}
+        options={{ title: ROUTES.BookDetail.title }}
+      />
+    </LibraryStack.Navigator>
+  );
+}
 
-const Stack = createStackNavigator();
+function WishlistStackScreen() {
+  return (
+    <WishlistStack.Navigator
+      initialRouteName={ROUTES.Wishlist.name}
+      headerMode="float"
+      screenOptions={stackNavigatorConfig}>
+      <WishlistStack.Screen
+        name={ROUTES.Wishlist.name}
+        component={() => null}
+        options={{ title: ROUTES.Wishlist.title }}
+      />
+    </WishlistStack.Navigator>
+  );
+}
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName={ROUTES.Library}
-        headerMode="float"
-        screenOptions={{
-          gestureEnabled: true,
-          headerStyle: styles.header,
-          headerTintColor: COLORS.white,
-          headerTitleStyle: styles.headerTitle,
-          headerBackImage: () => (
-            <Image source={backButton} style={styles.backImage} />
-          ),
-          header: CustomHeader,
-          headerBackground: () => (
-            <Image
-              source={icNavbar}
-              resizeMode="stretch"
-              style={[styles.background, StyleSheet.absoluteFill]}
-            />
-          )
+      <Tab.Navigator
+        tabBarOptions={{
+          activeTintColor: COLORS.blue,
+          inactiveTintColor: COLORS.gray
         }}>
-        <Stack.Screen
+        <Tab.Screen
           name={ROUTES.Library.name}
-          component={LibraryScreen}
-          options={{ title: ROUTES.Library.title }}
+          component={LibraryStackScreen}
+          options={{
+            tabBarIcon: ({ focused, size }) => (
+              <TabBarIcon
+                active={libraryActive}
+                inactive={libraryInactive}
+                focused={focused}
+                size={size}
+              />
+            )
+          }}
         />
-        <Stack.Screen
-          name={ROUTES.BookDetail.name}
-          component={BookDetailScreen}
-          options={{ title: ROUTES.BookDetail.title }}
+        <Tab.Screen
+          name={ROUTES.Wishlist.name}
+          component={WishlistStackScreen}
+          options={{
+            tabBarIcon: ({ focused, size }) => (
+              <TabBarIcon
+                active={starActive}
+                inactive={starInactive}
+                focused={focused}
+                size={size}
+              />
+            )
+          }}
         />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
