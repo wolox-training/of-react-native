@@ -57,7 +57,6 @@ target 'wbooks' do
 
   pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
 
-  pod 'react-native-config', :path => '../node_modules/react-native-config'
 
   target 'wbooksTests' do
     inherit! :complete
