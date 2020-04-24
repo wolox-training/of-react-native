@@ -15,7 +15,9 @@ import libraryInactive from '@assets/toolbar/ic_library.png';
 import LibraryScreen from '@screens/LibraryScreen';
 import BookDetailScreen from '@screens/BookDetailScreen';
 import { stackNavigatorConfig } from '@utils/stackConfig';
+import LoginContainerScreen from '@screens/LoginScreen';
 
+const Stack = createStackNavigator();
 const LibraryStack = createStackNavigator();
 const WishlistStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -55,43 +57,63 @@ function WishlistStackScreen() {
   );
 }
 
+function TabNavigatorScreen() {
+  return (
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: COLORS.blue,
+        inactiveTintColor: COLORS.gray
+      }}>
+      <Tab.Screen
+        name={ROUTES.Library.name}
+        component={LibraryStackScreen}
+        options={{
+          tabBarIcon: ({ focused, size }) => (
+            <TabBarIcon
+              active={libraryActive}
+              inactive={libraryInactive}
+              focused={focused}
+              size={size}
+            />
+          )
+        }}
+      />
+      <Tab.Screen
+        name={ROUTES.Wishlist.name}
+        component={WishlistStackScreen}
+        options={{
+          tabBarIcon: ({ focused, size }) => (
+            <TabBarIcon
+              active={starActive}
+              inactive={starInactive}
+              focused={focused}
+              size={size}
+            />
+          )
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
+
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        tabBarOptions={{
-          activeTintColor: COLORS.blue,
-          inactiveTintColor: COLORS.gray
-        }}>
-        <Tab.Screen
-          name={ROUTES.Library.name}
-          component={LibraryStackScreen}
-          options={{
-            tabBarIcon: ({ focused, size }) => (
-              <TabBarIcon
-                active={libraryActive}
-                inactive={libraryInactive}
-                focused={focused}
-                size={size}
-              />
-            )
-          }}
+      <Stack.Navigator
+      initialRouteName={ROUTES.Login.name}
+      headerMode="none"
+      >
+        <Stack.Screen
+          name={ROUTES.Login.name}
+          component={LoginContainerScreen}
+          options={{ title: ROUTES.Login.title }}
         />
-        <Tab.Screen
-          name={ROUTES.Wishlist.name}
-          component={WishlistStackScreen}
-          options={{
-            tabBarIcon: ({ focused, size }) => (
-              <TabBarIcon
-                active={starActive}
-                inactive={starInactive}
-                focused={focused}
-                size={size}
-              />
-            )
-          }}
+        <Stack.Screen
+          name={ROUTES.Home.name}
+          component={TabNavigatorScreen}
+          options={{ title: ROUTES.Home.title }}
         />
-      </Tab.Navigator>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
