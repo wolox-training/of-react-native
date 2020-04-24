@@ -15,7 +15,7 @@ import libraryInactive from '@assets/toolbar/ic_library.png';
 import LibraryScreen from '@screens/LibraryScreen';
 import BookDetailScreen from '@screens/BookDetailScreen';
 import { stackNavigatorConfig } from '@utils/stackConfig';
-import LoginContainerScreen from '@screens/LoginScreen';
+import LoginScreen from '@screens/LoginScreen';
 
 const Stack = createStackNavigator();
 const LibraryStack = createStackNavigator();
@@ -105,7 +105,7 @@ export default function App() {
       >
         <Stack.Screen
           name={ROUTES.Login.name}
-          component={LoginContainerScreen}
+          component={LoginScreen}
           options={{ title: ROUTES.Login.title }}
         />
         <Stack.Screen
