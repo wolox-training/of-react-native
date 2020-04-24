@@ -31,8 +31,14 @@ const styles = StyleSheet.create({
     borderColor: COLORS.white,
     marginBottom: 10
   },
+  buttonDisable: {
+    borderColor: COLORS.gray
+  },
   loginButtonText: {
     color: COLORS.white
+  },
+  textDisable: {
+    color: COLORS.gray
   }
 });
 

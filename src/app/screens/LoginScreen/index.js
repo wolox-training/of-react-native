@@ -6,11 +6,17 @@ import logo from '@assets/General/Group.png';
 import CustomButton from '@components/CustomButton';
 import { ROUTES } from '@constants/routes';
 
+import { validateEmail } from './utils';
+
 import styles from './styles';
 
 function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const emailValid = validateEmail(email);
+  const passwordValid = password.length > 0;
+  const disable = !emailValid || !passwordValid;
 
   const onSubmit = useCallback(() => navigation.navigate(ROUTES.Home.name), [navigation]);
 
@@ -37,9 +43,10 @@ function LoginScreen({ navigation }) {
           />
           <CustomButton
             text="INGRESAR"
-            style={styles.loginButton}
-            textStyle={styles.loginButtonText}
+            style={[styles.loginButton, disable && styles.buttonDisable]}
+            textStyle={disable ? styles.textDisable : styles.loginButtonText}
             onPress={onSubmit}
+            disable={disable}
           />
         </View>
       </ImageBackground>
