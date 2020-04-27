@@ -22,12 +22,12 @@ function LoginScreen({ navigation }) {
   const disable = !emailValid || !passwordValid;
 
   const dispatch = useDispatch();
-  const token = useSelector(state => state.token);
-  const authLoading = useSelector(state => state.loading);
+  const token = useSelector((state) => state.login.token);
+  const authLoading = useSelector((state) => state.login.loading);
 
   const onSubmit = useCallback(() => {
     dispatch(actionsCreators.signIn(email, password));
-  }, [email, password]);
+  }, [dispatch, email, password]);
 
   useEffect(() => {
     if (token) {
