@@ -1,16 +1,19 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { View, Image, ImageBackground, SafeAreaView, TextInput } from 'react-native';
 
 import background from '@assets/General/bc_inicio.png';
 import logo from '@assets/General/Group.png';
 import CustomButton from '@components/CustomButton';
 import { ROUTES } from '@constants/routes';
+import actionsCreators from '@redux/auth/actions';
+import { COLORS } from '@constants/colors';
 
 import { validateEmail } from './utils';
 
 import styles from './styles';
 
-function LoginScreen({ navigation }) {
+function LoginScreen({ navigation, login, userAuthenticated, authLoading }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -18,7 +21,16 @@ function LoginScreen({ navigation }) {
   const passwordValid = password.length > 0;
   const disable = !emailValid || !passwordValid;
 
-  const onSubmit = useCallback(() => navigation.navigate(ROUTES.Home.name), [navigation]);
+  const onSubmit = useCallback(() => {
+    login(email,password);
+  }, [navigation]
+  );
+
+  useEffect(() => {
+    if (userAuthenticated) {
+      navigation.navigate(ROUTES.Home.name);
+    }
+  }, [userAuthenticated, navigation]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -47,6 +59,8 @@ function LoginScreen({ navigation }) {
             textStyle={disable ? styles.textDisable : styles.loginButtonText}
             onPress={onSubmit}
             disable={disable}
+            loading={authLoading}
+            loaderColor={COLORS.white}
           />
         </View>
       </ImageBackground>
@@ -54,4 +68,16 @@ function LoginScreen({ navigation }) {
   );
 }
 
-export default LoginScreen;
+const mapDispatchToProps = dispatch => ({
+  login: (email, password) => dispatch(actionsCreators.signIn(email,password)),
+})
+
+const mapStateToProps = store => ({
+  userAuthenticated: store.userAuthenticated,
+  authLoading: store.loading
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginScreen);
