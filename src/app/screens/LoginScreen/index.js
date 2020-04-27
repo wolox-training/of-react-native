@@ -22,9 +22,8 @@ function LoginScreen({ navigation, login, userAuthenticated, authLoading }) {
   const disable = !emailValid || !passwordValid;
 
   const onSubmit = useCallback(() => {
-    login(email,password);
-  }, [navigation]
-  );
+    login(email, password);
+  }, [email, login, password]);
 
   useEffect(() => {
     if (userAuthenticated) {
@@ -68,16 +67,13 @@ function LoginScreen({ navigation, login, userAuthenticated, authLoading }) {
   );
 }
 
-const mapDispatchToProps = dispatch => ({
-  login: (email, password) => dispatch(actionsCreators.signIn(email,password)),
-})
+const mapDispatchToProps = (dispatch) => ({
+  login: (email, password) => dispatch(actionsCreators.signIn(email, password))
+});
 
-const mapStateToProps = store => ({
+const mapStateToProps = (store) => ({
   userAuthenticated: store.userAuthenticated,
   authLoading: store.loading
-})
+});
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
