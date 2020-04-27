@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { View, Image, ImageBackground, SafeAreaView, TextInput } from 'react-native';
 
 import background from '@assets/General/bc_inicio.png';
@@ -13,7 +13,7 @@ import { validateEmail } from './utils';
 
 import styles from './styles';
 
-function LoginScreen({ navigation, login, userAuthenticated, authLoading }) {
+function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -21,15 +21,19 @@ function LoginScreen({ navigation, login, userAuthenticated, authLoading }) {
   const passwordValid = password.length > 0;
   const disable = !emailValid || !passwordValid;
 
+  const dispatch = useDispatch();
+  const token = useSelector(state => state.token);
+  const authLoading = useSelector(state => state.loading);
+
   const onSubmit = useCallback(() => {
-    login(email, password);
-  }, [email, login, password]);
+    dispatch(actionsCreators.signIn(email, password));
+  }, [email, password]);
 
   useEffect(() => {
-    if (userAuthenticated) {
+    if (token) {
       navigation.navigate(ROUTES.Home.name);
     }
-  }, [userAuthenticated, navigation]);
+  }, [token, navigation]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -67,13 +71,4 @@ function LoginScreen({ navigation, login, userAuthenticated, authLoading }) {
   );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  login: (email, password) => dispatch(actionsCreators.signIn(email, password))
-});
-
-const mapStateToProps = (store) => ({
-  userAuthenticated: store.userAuthenticated,
-  authLoading: store.loading
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
+export default LoginScreen;
