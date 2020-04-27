@@ -1,12 +1,12 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import { string, func, bool } from 'prop-types';
 import { Text, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
 
-function CustomButton({ text, onPress, style, textStyle }) {
+function CustomButton({ text, onPress, style, textStyle, disable }) {
   return (
-    <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
+    <TouchableOpacity style={[styles.button, style]} onPress={onPress} disabled={disable}>
       <Text style={[styles.buttonText, textStyle]}>{text}</Text>
     </TouchableOpacity>
   );
@@ -14,7 +14,8 @@ function CustomButton({ text, onPress, style, textStyle }) {
 
 CustomButton.propTypes = {
   text: string,
-  onPress: func
+  onPress: func,
+  disable: bool
 };
 
 export default CustomButton;
