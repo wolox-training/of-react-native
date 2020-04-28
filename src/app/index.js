@@ -70,12 +70,7 @@ function TabNavigatorScreen() {
         component={LibraryStackScreen}
         options={{
           tabBarIcon: ({ focused, size }) => (
-            <TabBarIcon
-              active={libraryActive}
-              inactive={libraryInactive}
-              focused={focused}
-              size={size}
-            />
+            <TabBarIcon active={libraryActive} inactive={libraryInactive} focused={focused} size={size} />
           )
         }}
       />
@@ -84,12 +79,7 @@ function TabNavigatorScreen() {
         component={WishlistStackScreen}
         options={{
           tabBarIcon: ({ focused, size }) => (
-            <TabBarIcon
-              active={starActive}
-              inactive={starInactive}
-              focused={focused}
-              size={size}
-            />
+            <TabBarIcon active={starActive} inactive={starInactive} focused={focused} size={size} />
           )
         }}
       />
@@ -102,7 +92,7 @@ export default function App() {
 
   useEffect(() => {
     dispatch(actionsCreators.getCurrentToken());
-  }, []);
+  }, [dispatch]);
 
   return (
     <NavigationContainer>

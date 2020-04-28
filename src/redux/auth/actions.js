@@ -28,7 +28,7 @@ const actionsCreators = {
   }),
   getCurrentToken: () => async (dispatch) => {
     const token = await getToken();
-    if(token){
+    if (token) {
       dispatch({ type: actions.GET_CURENT_TOKEN, payload: token });
     }
   }
