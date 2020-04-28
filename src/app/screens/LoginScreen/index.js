@@ -32,6 +32,8 @@ function LoginScreen({ navigation }) {
   useEffect(() => {
     if (token) {
       navigation.navigate(ROUTES.Home.name);
+      setEmail('');
+      setPassword('');
     }
   }, [token, navigation]);
 

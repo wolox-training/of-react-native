@@ -10,3 +10,8 @@ export const setToken = (token) => {
   AsyncStorage.setItem('access-token', token);
   api.setHeader('Authorization', token);
 };
+
+export const removeToken = () => {
+  AsyncStorage.removeItem('access-token');
+  api.deleteHeader('Authorization');
+};

@@ -32,10 +32,10 @@ function LibraryStackScreen() {
       <LibraryStack.Screen
         name={ROUTES.Library.name}
         component={LibraryScreen}
-        options={{
+        options={({ navigation }) => ({
           title: ROUTES.Library.title,
-          headerLeft: (navigation) => <LogoutButton navigation={navigation} />
-        }}
+          headerLeft: () => <LogoutButton navigation={navigation} />
+        })}
       />
       <LibraryStack.Screen
         name={ROUTES.BookDetail.name}
