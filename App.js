@@ -1,9 +1,13 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 
+import { Provider } from 'react-redux';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import store from '@redux/store';
 
 import TabBarIcon from '@components/TabBarIcon';
 import { ROUTES } from '@constants/routes';
@@ -98,22 +102,21 @@ function TabNavigatorScreen() {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-      initialRouteName={ROUTES.Login.name}
-      headerMode="none"
-      >
-        <Stack.Screen
-          name={ROUTES.Login.name}
-          component={LoginScreen}
-          options={{ title: ROUTES.Login.title }}
-        />
-        <Stack.Screen
-          name={ROUTES.Home.name}
-          component={TabNavigatorScreen}
-          options={{ title: ROUTES.Home.title }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName={ROUTES.Login.name} headerMode="none">
+          <Stack.Screen
+            name={ROUTES.Login.name}
+            component={LoginScreen}
+            options={{ title: ROUTES.Login.title }}
+          />
+          <Stack.Screen
+            name={ROUTES.Home.name}
+            component={TabNavigatorScreen}
+            options={{ title: ROUTES.Home.title }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }

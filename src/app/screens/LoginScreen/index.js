@@ -1,10 +1,13 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { View, Image, ImageBackground, SafeAreaView, TextInput } from 'react-native';
 
 import background from '@assets/General/bc_inicio.png';
 import logo from '@assets/General/Group.png';
 import CustomButton from '@components/CustomButton';
 import { ROUTES } from '@constants/routes';
+import actionsCreators from '@redux/auth/actions';
+import { COLORS } from '@constants/colors';
 
 import { validateEmail } from './utils';
 
@@ -18,7 +21,19 @@ function LoginScreen({ navigation }) {
   const passwordValid = password.length > 0;
   const disable = !emailValid || !passwordValid;
 
-  const onSubmit = useCallback(() => navigation.navigate(ROUTES.Home.name), [navigation]);
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.login.token);
+  const authLoading = useSelector((state) => state.login.loading);
+
+  const onSubmit = useCallback(() => {
+    dispatch(actionsCreators.signIn(email, password));
+  }, [dispatch, email, password]);
+
+  useEffect(() => {
+    if (token) {
+      navigation.navigate(ROUTES.Home.name);
+    }
+  }, [token, navigation]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -47,6 +62,8 @@ function LoginScreen({ navigation }) {
             textStyle={disable ? styles.textDisable : styles.loginButtonText}
             onPress={onSubmit}
             disable={disable}
+            loading={authLoading}
+            loaderColor={COLORS.white}
           />
         </View>
       </ImageBackground>
