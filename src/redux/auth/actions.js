@@ -1,9 +1,11 @@
-import { login } from '@services/AuthService';
+import { login, setToken } from '@services/AuthService';
+import api from '@config/api';
 
 export const actions = {
   SIGN_IN: '@@AUTH/SIGN_IN',
   SIGN_IN_SUCCESS: '@@AUTH/SIGN_IN_SUCCESS',
-  SIGN_IN_FAILURE: '@@AUTH/SIGN_IN_FAILURE'
+  SIGN_IN_FAILURE: '@@AUTH/SIGN_IN_FAILURE',
+  SAVE_CURENT_TOKEN: '@@AUTH/SAVE_CURENT_TOKEN'
 };
 
 const actionsCreators = {
@@ -11,6 +13,7 @@ const actionsCreators = {
     dispatch({ type: actions.SIGN_IN });
     const response = await login(email, password);
     if (response.ok) {
+      setToken(response.headers['access-token']);
       dispatch(actionsCreators.signInSuccess(response.headers['access-token']));
     } else dispatch(actionsCreators.signInFailure(response.problem));
   },
@@ -21,7 +24,11 @@ const actionsCreators = {
   signInFailure: (problem) => ({
     type: actions.SIGN_IN_FAILURE,
     payload: problem
-  })
+  }),
+  saveCurrentToken: (token) => {
+    api.setHeader('Authorization', token);
+    return { type: actions.SAVE_CURENT_TOKEN, payload: token };
+  }
 };
 
 export default actionsCreators;
