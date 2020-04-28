@@ -1,4 +1,8 @@
 export const ROUTES = {
+  InitialLoading: {
+    name: 'InitialLoading',
+    title: 'Initial Loading'
+  },
   Login: {
     name: 'Login',
     title: 'Login'

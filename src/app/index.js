@@ -1,6 +1,5 @@
 import 'react-native-gesture-handler';
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -16,7 +15,7 @@ import LibraryScreen from '@screens/LibraryScreen';
 import BookDetailScreen from '@screens/BookDetailScreen';
 import { stackNavigatorConfig } from '@utils/stackConfig';
 import LoginScreen from '@screens/LoginScreen';
-import actionsCreators from '@redux/auth/actions';
+import InitialLoading from '@screens/InitialLoading';
 
 const Stack = createStackNavigator();
 const LibraryStack = createStackNavigator();
@@ -88,15 +87,10 @@ function TabNavigatorScreen() {
 }
 
 export default function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(actionsCreators.getCurrentToken());
-  }, [dispatch]);
-
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={ROUTES.Login.name} headerMode="none">
+      <Stack.Navigator initialRouteName={ROUTES.InitialLoading.name} headerMode="none">
+        <Stack.Screen name={ROUTES.InitialLoading.name} component={InitialLoading} />
         <Stack.Screen
           name={ROUTES.Login.name}
           component={LoginScreen}

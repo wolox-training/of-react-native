@@ -27,7 +27,7 @@ function reducer(state = initialState, action) {
         loading: false,
         error: action.payload
       };
-    case actions.GET_CURENT_TOKEN:
+    case actions.SAVE_CURENT_TOKEN:
       return {
         ...state,
         token: action.payload
