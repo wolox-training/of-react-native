@@ -1,5 +1,5 @@
 import api from '@config/api';
 
-export default {
-  getBookDetail: (id) => api.get('/books', { id })
-};
+export const getBooks = () => api.get('/api/v1/books');
+
+export const getBookDetail = (id) => api.get('/api/v1/books', { id });
