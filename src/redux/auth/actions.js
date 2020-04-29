@@ -1,6 +1,5 @@
-import { login, setToken } from '@services/AuthService';
+import { login, setToken, removeToken } from '@services/AuthService';
 import api from '@config/api';
-import { removeToken } from '../../services/AuthService';
 
 export const actions = {
   SIGN_IN: '@@AUTH/SIGN_IN',
