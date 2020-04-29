@@ -32,6 +32,11 @@ function reducer(state = initialState, action) {
         ...state,
         token: action.payload
       };
+    case actions.LOGOUT:
+      return {
+        ...state,
+        token: ''
+      };
     default:
       return state;
   }

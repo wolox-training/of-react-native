@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import TabBarIcon from '@components/TabBarIcon';
+import LogoutButton from '@components/LogoutButton';
 import { ROUTES } from '@constants/routes';
 import { COLORS } from '@constants/colors';
 import starActive from '@assets/toolbar/ic_wishlist_active.png';
@@ -31,7 +32,10 @@ function LibraryStackScreen() {
       <LibraryStack.Screen
         name={ROUTES.Library.name}
         component={LibraryScreen}
-        options={{ title: ROUTES.Library.title }}
+        options={({ navigation }) => ({
+          title: ROUTES.Library.title,
+          headerLeft: () => <LogoutButton navigation={navigation} />
+        })}
       />
       <LibraryStack.Screen
         name={ROUTES.BookDetail.name}
