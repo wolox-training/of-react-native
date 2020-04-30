@@ -6,6 +6,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import TabBarIcon from '@components/TabBarIcon';
 import LogoutButton from '@components/LogoutButton';
+import SearchButton from '@components/SearchButton';
+import SearchBar from '@components/SearchBar';
 import { ROUTES } from '@constants/routes';
 import { COLORS } from '@constants/colors';
 import starActive from '@assets/toolbar/ic_wishlist_active.png';
@@ -13,6 +15,7 @@ import starInactive from '@assets/toolbar/ic_wishlist.png';
 import libraryActive from '@assets/toolbar/ic_library_active.png';
 import libraryInactive from '@assets/toolbar/ic_library.png';
 import LibraryScreen from '@screens/LibraryScreen';
+import SearchScreen from '@screens/SearchScreen';
 import BookDetailScreen from '@screens/BookDetailScreen';
 import { stackNavigatorConfig } from '@utils/stackConfig';
 import LoginScreen from '@screens/LoginScreen';
@@ -34,13 +37,21 @@ function LibraryStackScreen() {
         component={LibraryScreen}
         options={({ navigation }) => ({
           title: ROUTES.Library.title,
-          headerLeft: () => <LogoutButton navigation={navigation} />
+          headerLeft: () => <LogoutButton navigation={navigation} />,
+          headerRight: () => <SearchButton navigation={navigation} />
         })}
       />
       <LibraryStack.Screen
         name={ROUTES.BookDetail.name}
         component={BookDetailScreen}
         options={{ title: ROUTES.BookDetail.title }}
+      />
+      <LibraryStack.Screen
+        name={ROUTES.Search.name}
+        component={SearchScreen}
+        options={() => ({
+          headerTitle: (props) => <SearchBar {...props} />
+        })}
       />
     </LibraryStack.Navigator>
   );

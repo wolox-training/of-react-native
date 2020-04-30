@@ -22,5 +22,9 @@ export const ROUTES = {
   Wishlist: {
     name: 'Wishlist',
     title: 'Wishlist'
+  },
+  Search: {
+    name: 'Search',
+    title: 'Search'
   }
 };
