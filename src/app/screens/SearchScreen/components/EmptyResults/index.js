@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 
-import searchImg from '@assets/General/search_img.png';
+import searchImg from '@assets/General/ic_search_placeholder.png';
 
 import styles from './styles';
 

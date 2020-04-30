@@ -50,6 +50,8 @@ function LibraryStackScreen() {
         name={ROUTES.Search.name}
         component={SearchScreen}
         options={() => ({
+          headerTitleAlign: 'center',
+          headerLeft: null,
           headerTitle: (props) => <SearchBar {...props} />
         })}
       />
