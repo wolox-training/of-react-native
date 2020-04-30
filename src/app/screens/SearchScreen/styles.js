@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: 20
   },
-  library: {
+  books: {
     width: '100%'
   }
 });

@@ -4,7 +4,9 @@ import { SafeAreaView, FlatList, View, TouchableOpacity } from 'react-native';
 
 import Book from '@components/Book';
 import { ROUTES } from '@constants/routes';
+
 import styles from './styles';
+import EmptyResults from './components/EmptyResults';
 
 function SearchScreen({ navigation }) {
   const books = useSelector((state) => state.books.books);
@@ -21,12 +23,17 @@ function SearchScreen({ navigation }) {
 
   const keyExtractor = useCallback((item) => item.id.toString(), []);
 
-  const filterBooks = books?.page.filter((item) => item.title.includes(search));
+  const filterBooks = search ? books?.page.filter((item) => item.title.includes(search)) : [];
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.library}>
-        <FlatList data={filterBooks} renderItem={renderBook} keyExtractor={keyExtractor} />
+      <View style={styles.books}>
+        <FlatList
+          data={filterBooks}
+          renderItem={renderBook}
+          keyExtractor={keyExtractor}
+          ListEmptyComponent={EmptyResults}
+        />
       </View>
     </SafeAreaView>
   );
