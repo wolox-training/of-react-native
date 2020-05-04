@@ -3,7 +3,8 @@ import { actions } from './actions';
 const initialState = {
   books: [],
   loading: false,
-  error: null
+  error: null,
+  search: ''
 };
 
 function reducer(state = initialState, action) {
@@ -25,6 +26,11 @@ function reducer(state = initialState, action) {
         ...state,
         loading: false,
         error: action.payload
+      };
+    case actions.SEARCH:
+      return {
+        ...state,
+        search: action.payload
       };
     default:
       return state;
