@@ -3,8 +3,7 @@ import { Animated, TouchableOpacity } from 'react-native';
 
 import Book from '@components/Book';
 
-const RANGE = 300;
-const SUPERPOSITION = 100;
+import { RANGE, SUPERPOSITION } from './constants';
 
 function FlatListItem({ onPress, index, item }) {
   const opacity = new Animated.Value(0);

@@ -6,6 +6,7 @@ import CommentSection from '@components/CommentSection';
 
 import { COMMENTS } from './constants';
 import styles from './styles';
+import RentButton from './components/RentButton';
 
 function BookDetailScreen({ route }) {
   const { imageUrl, title, author, year, genre } = route?.params?.book;
@@ -24,7 +25,7 @@ function BookDetailScreen({ route }) {
             </View>
           </View>
           <CustomButton text="ADD TO WISHLIST" style={styles.addButton} textStyle={styles.addButtonText} />
-          <CustomButton text="RENT" style={styles.rentButton} textStyle={styles.rentButtonText} />
+          <RentButton />
         </View>
         <CommentSection comments={COMMENTS} />
       </ScrollView>
