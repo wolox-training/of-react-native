@@ -3,17 +3,19 @@ import { Text, TouchableOpacity, Animated } from 'react-native';
 
 import styles from './styles';
 
+const WIDTH = 280;
+
 function RentButton() {
   const [rented, setRented] = useState(false);
 
   const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
 
-  const width = new Animated.Value(280);
+  const width = new Animated.Value(WIDTH);
 
   const onRent = useCallback(() => {
     setRented(true);
     Animated.timing(width, {
-      toValue: 50,
+      toValue: 40,
       duration: 300,
       useNativeDriver: false
     }).start();
