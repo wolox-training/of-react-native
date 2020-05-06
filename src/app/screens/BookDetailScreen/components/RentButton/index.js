@@ -33,7 +33,7 @@ function RentButton() {
       {rented ? (
         <Text style={[styles.text, styles.check]}>{'✔'}</Text>
       ) : (
-        <LinearGradient colors={[COLORS.blue, COLORS.gradientBlue]} style={styles.gradient}>
+        <LinearGradient colors={COLORS.gradientColors} style={styles.gradient}>
           <Text style={[styles.text, styles.rentButtonText]}>{'RENT'}</Text>
         </LinearGradient>
       )}
