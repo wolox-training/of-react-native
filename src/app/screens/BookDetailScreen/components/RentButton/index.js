@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect, useRef } from 'react';
 import { Text, TouchableOpacity, Animated } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -12,7 +12,7 @@ function RentButton() {
 
   const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
 
-  const width = new Animated.Value(STARTING_WIDTH);
+  const width = useRef(new Animated.Value(STARTING_WIDTH)).current;
 
   useEffect(() => {
     if (rented) {

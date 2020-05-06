@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Animated, TouchableOpacity } from 'react-native';
 
 import Book from '@components/Book';
@@ -6,7 +6,7 @@ import Book from '@components/Book';
 import { RANGE, SUPERPOSITION } from './constants';
 
 function FlatListItem({ onPress, index, item }) {
-  const opacity = new Animated.Value(0);
+  const opacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     Animated.timing(opacity, {
