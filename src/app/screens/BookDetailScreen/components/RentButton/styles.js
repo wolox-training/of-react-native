@@ -11,8 +11,12 @@ const styles = StyleSheet.create({
   text: {
     textAlign: 'center'
   },
-  rentButton: {
-    backgroundColor: COLORS.blue
+  gradient: {
+    borderRadius: 50,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    height: 40,
+    width: 280
   },
   rentButtonText: {
     color: COLORS.white
