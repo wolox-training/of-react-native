@@ -26,8 +26,12 @@ function RentButton() {
   }, []);
 
   return (
-    <AnimatedTouchable style={[rented ? styles.buttonCheck : styles.rentButton, { width }]} onPress={onRent}>
-      <Text style={rented ? styles.check : styles.rentButtonText}>{rented ? '✔' : 'RENT'}</Text>
+    <AnimatedTouchable
+      style={[styles.button, rented ? styles.buttonCheck : styles.rentButton, { width }]}
+      onPress={onRent}>
+      <Text style={[styles.text, rented ? styles.check : styles.rentButtonText]}>
+        {rented ? '✔' : 'RENT'}
+      </Text>
     </AnimatedTouchable>
   );
 }
