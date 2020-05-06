@@ -9,13 +9,13 @@ export const actions = {
   LOGOUT: '@@AUTH/LOGOUT'
 };
 
-const actionsCreators = {
+export const actionsCreators = {
   signIn: (email, password) => async (dispatch) => {
     dispatch({ type: actions.SIGN_IN });
     const response = await login(email, password);
     if (response.ok) {
-      setToken(response.headers['access-token']);
-      dispatch(actionsCreators.signInSuccess(response.headers['access-token']));
+      setToken(response?.headers['access-token']);
+      dispatch(actionsCreators.signInSuccess(response?.headers['access-token']));
     } else dispatch(actionsCreators.signInFailure(response.problem));
   },
   signInSuccess: (token) => ({
