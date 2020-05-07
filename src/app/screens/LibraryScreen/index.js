@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { SafeAreaView, FlatList, View, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { SafeAreaView, FlatList, View, ActivityIndicator } from 'react-native';
 
-import Book from '@components/Book';
 import { ROUTES } from '@constants/routes';
 import { COLORS } from '@constants/colors';
 import actionCreators from '@redux/books/actions';
-
+import FlatListItem from './components/FlatListItem';
 import styles from './styles';
 
 function LibraryScreen({ navigation }) {
@@ -20,10 +19,12 @@ function LibraryScreen({ navigation }) {
   }, [dispatch]);
 
   const renderBook = useCallback(
-    ({ item }) => (
-      <TouchableOpacity onPress={() => navigation.navigate(ROUTES.BookDetail.name, { book: item })}>
-        <Book title={item.title} author={item.author} image={item.image} />
-      </TouchableOpacity>
+    ({ item, index }) => (
+      <FlatListItem
+        item={item}
+        index={index}
+        onPress={() => navigation.navigate(ROUTES.BookDetail.name, { book: item })}
+      />
     ),
     [navigation]
   );
