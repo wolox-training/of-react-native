@@ -6,7 +6,7 @@ import { ROUTES } from '@constants/routes';
 
 import styles from './styles';
 
-function LogoutButton({ navigation }) {
+function SearchButton({ navigation }) {
   const goSearch = useCallback(() => {
     navigation.navigate(ROUTES.Search.name);
   }, [navigation]);
@@ -17,4 +17,4 @@ function LogoutButton({ navigation }) {
   );
 }
 
-export default LogoutButton;
+export default SearchButton;
