@@ -4,5 +4,6 @@ export const COLORS = {
   white: '#FFF',
   blue: '#00ADEE',
   green: '#A5CD39',
-  gray: '#BABABA'
+  gray: '#BABABA',
+  gradientColors: ['#00ADEE', '#39CCCD']
 };

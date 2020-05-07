@@ -1,5 +1,8 @@
 import React, { useCallback, useState, useEffect, useRef } from 'react';
 import { Text, TouchableOpacity, Animated } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+
+import { COLORS } from '@constants/colors';
 
 import styles from './styles';
 import { STARTING_WIDTH } from './constants';
@@ -26,12 +29,14 @@ function RentButton() {
   }, []);
 
   return (
-    <AnimatedTouchable
-      style={[styles.button, rented ? styles.buttonCheck : styles.rentButton, { width }]}
-      onPress={onRent}>
-      <Text style={[styles.text, rented ? styles.check : styles.rentButtonText]}>
-        {rented ? '✔' : 'RENT'}
-      </Text>
+    <AnimatedTouchable style={[styles.button, rented && styles.buttonCheck, { width }]} onPress={onRent}>
+      {rented ? (
+        <Text style={[styles.text, styles.check]}>{'✔'}</Text>
+      ) : (
+        <LinearGradient colors={COLORS.gradientColors} style={styles.gradient}>
+          <Text style={[styles.text, styles.rentButtonText]}>{'RENT'}</Text>
+        </LinearGradient>
+      )}
     </AnimatedTouchable>
   );
 }
