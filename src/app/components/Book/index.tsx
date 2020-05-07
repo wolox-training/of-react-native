@@ -10,7 +10,7 @@ export interface BookProps {
   author: string;
 }
 
-function Book({ image, title, author } : BookProps) {
+function Book({ image, title, author }: BookProps) {
   return (
     <View style={styles.book}>
       <Image source={{ uri: image }} style={styles.image} />
