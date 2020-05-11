@@ -1,18 +1,20 @@
 import React, { useCallback, useState, useEffect, useRef } from 'react';
-import { Text, TouchableOpacity, Animated } from 'react-native';
+import { Text, TouchableOpacity, Animated, Dimensions } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { COLORS } from '@constants/colors';
 
 import styles from './styles';
-import { STARTING_WIDTH } from './constants';
+import { PADDING } from './constants';
 
 function RentButton() {
   const [rented, setRented] = useState(false);
 
   const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
 
-  const width = useRef(new Animated.Value(STARTING_WIDTH)).current;
+  const { width: screenWidth } = Dimensions.get('window');
+
+  const width = useRef(new Animated.Value(screenWidth - PADDING)).current;
 
   useEffect(() => {
     if (rented) {

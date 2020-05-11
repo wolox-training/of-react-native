@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     height: 40,
-    width: 280
+    width: '100%'
   },
   rentButtonText: {
     color: COLORS.white
