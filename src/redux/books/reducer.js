@@ -4,7 +4,8 @@ const initialState = {
   books: [],
   loading: false,
   error: null,
-  search: ''
+  search: '',
+  wishlist: []
 };
 
 function reducer(state = initialState, action) {
@@ -31,6 +32,11 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         search: action.payload
+      };
+    case actions.ADD_TO_WISHLIST:
+      return {
+        ...state,
+        wishlist: [...state.wishlist, action.payload]
       };
     default:
       return state;
