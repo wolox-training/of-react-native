@@ -5,7 +5,7 @@ import check from '@assets/General/check.gif';
 import { COLORS } from '@constants/colors';
 import styles from './styles';
 
-export default function OkModal({ visible, onPress }) {
+function OkModal({ visible, onPress }) {
   return (
     <Modal animationType="slide" transparent={false} visible={visible} onRequestClose={onPress}>
       <View style={styles.container}>
@@ -16,3 +16,5 @@ export default function OkModal({ visible, onPress }) {
     </Modal>
   );
 }
+
+export default OkModal;
