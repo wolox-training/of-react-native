@@ -1,1 +1,1 @@
-export const STARTING_WIDTH = 280;
+export const PADDING = 80;

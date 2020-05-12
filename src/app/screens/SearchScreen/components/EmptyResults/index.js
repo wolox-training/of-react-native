@@ -10,8 +10,8 @@ function EmptyResults() {
     <View style={styles.container}>
       <Image source={searchImg} style={styles.image} />
       <View>
-        <Text style={styles.title}>Search in Wbooks</Text>
-        <Text>Find your favorite writers and books!</Text>
+        <Text style={[styles.title, styles.text]}>Search in Wbooks</Text>
+        <Text style={styles.text}>Find your favorite writers and books!</Text>
       </View>
     </View>
   );

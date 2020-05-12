@@ -151,6 +151,16 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+
+        release {
+            if (project.hasProperty('WBOOKS_RELEASE_STORE_FILE')) {
+                storeFile file('WBOOKS_RELEASE_STORE_FILE')
+                storePassword 'WBOOKS_RELEASE_STORE_PASSWORD'
+                keyAlias 'WBOOKS_RELEASE_KEY_ALIAS'
+                keyPassword 'WBOOKS_RELEASE_KEY_PASSWORD'
+            }
+            
+        }
     }
     buildTypes {
         debug {

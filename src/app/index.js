@@ -15,6 +15,7 @@ import starInactive from '@assets/toolbar/ic_wishlist.png';
 import libraryActive from '@assets/toolbar/ic_library_active.png';
 import libraryInactive from '@assets/toolbar/ic_library.png';
 import LibraryScreen from '@screens/LibraryScreen';
+import WishlistScreen from '@screens/WishlistScreen';
 import SearchScreen from '@screens/SearchScreen';
 import BookDetailScreen from '@screens/BookDetailScreen';
 import { stackNavigatorConfig } from '@utils/stackConfig';
@@ -67,7 +68,7 @@ function WishlistStackScreen() {
       screenOptions={stackNavigatorConfig}>
       <WishlistStack.Screen
         name={ROUTES.Wishlist.name}
-        component={() => null}
+        component={WishlistScreen}
         options={{ title: ROUTES.Wishlist.title }}
       />
     </WishlistStack.Navigator>

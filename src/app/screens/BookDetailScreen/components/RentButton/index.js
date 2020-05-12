@@ -3,16 +3,17 @@ import { Text, TouchableOpacity, Animated } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { COLORS } from '@constants/colors';
+import { SCREEN_WIDTH } from '@constants/dimensions';
 
 import styles from './styles';
-import { STARTING_WIDTH } from './constants';
+import { PADDING } from './constants';
 
 function RentButton() {
   const [rented, setRented] = useState(false);
 
   const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
 
-  const width = useRef(new Animated.Value(STARTING_WIDTH)).current;
+  const width = useRef(new Animated.Value(SCREEN_WIDTH - PADDING)).current;
 
   useEffect(() => {
     if (rented) {
