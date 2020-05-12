@@ -1,10 +1,15 @@
 import React from 'react';
-import { string } from 'prop-types';
 import { Text, View, Image } from 'react-native';
 
 import styles from './styles';
 
-function Book({ image, title, author }) {
+export interface BookProps {
+  image: string;
+  title: string;
+  author: string;
+}
+
+function Book({ image, title, author }: BookProps) {
   return (
     <View style={styles.book}>
       <Image source={{ uri: image }} style={styles.image} />
@@ -20,12 +25,6 @@ Book.defaultProps = {
   image: '',
   title: '',
   author: ''
-};
-
-Book.propTypes = {
-  image: string,
-  title: string.isRequired,
-  author: string.isRequired
 };
 
 export default Book;
