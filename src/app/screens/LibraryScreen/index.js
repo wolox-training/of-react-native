@@ -1,12 +1,15 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { SafeAreaView, FlatList, View, ActivityIndicator } from 'react-native';
+import { SafeAreaView, FlatList, View } from 'react-native';
 
 import { ROUTES } from '@constants/routes';
 import { COLORS } from '@constants/colors';
+import withLoader from '@components/WithLoader';
 import actionCreators from '@redux/books/actions';
 import FlatListItem from './components/FlatListItem';
 import styles from './styles';
+
+const LoadableFlatlist = withLoader(FlatList);
 
 function LibraryScreen({ navigation }) {
   const dispatch = useDispatch();
@@ -34,11 +37,14 @@ function LibraryScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.library}>
-        {booksLoading ? (
-          <ActivityIndicator size="large" color={COLORS.blue} />
-        ) : (
-          <FlatList data={books?.page} renderItem={renderBook} keyExtractor={keyExtractor} />
-        )}
+        <LoadableFlatlist
+          loading={booksLoading}
+          size="large"
+          color={COLORS.blue}
+          data={books?.page}
+          renderItem={renderBook}
+          keyExtractor={keyExtractor}
+        />
       </View>
     </SafeAreaView>
   );

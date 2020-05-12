@@ -1,17 +1,19 @@
 import React from 'react';
 import { string, func, bool } from 'prop-types';
-import { Text, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
+
+import withLoader from '@components/WithLoader';
 
 import styles from './styles';
+
+const LoadableText = withLoader(Text);
 
 function CustomButton({ text, onPress, style, textStyle, disable, loading, loaderColor }) {
   return (
     <TouchableOpacity style={[styles.button, style]} onPress={onPress} disabled={disable}>
-      {loading ? (
-        <ActivityIndicator size="small" color={loaderColor} />
-      ) : (
-        <Text style={[styles.buttonText, textStyle]}>{text}</Text>
-      )}
+      <LoadableText loading={loading} size="small" color={loaderColor} style={[styles.buttonText, textStyle]}>
+        {text}
+      </LoadableText>
     </TouchableOpacity>
   );
 }
