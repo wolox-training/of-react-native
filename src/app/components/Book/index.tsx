@@ -1,5 +1,4 @@
 import React from 'react';
-import { string } from 'prop-types';
 import { Text, View, Image } from 'react-native';
 
 import styles from './styles';
@@ -26,12 +25,6 @@ Book.defaultProps = {
   image: '',
   title: '',
   author: ''
-};
-
-Book.propTypes = {
-  image: string,
-  title: string.isRequired,
-  author: string.isRequired
 };
 
 export default Book;

@@ -18,3 +18,4 @@ jobs:
       run: |
         yarn
         yarn run lint
+        yarn run tsc
