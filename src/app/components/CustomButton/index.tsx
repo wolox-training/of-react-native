@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactChild, ReactNode } from 'react';
 import { Text, TouchableOpacity, GestureResponderEvent } from 'react-native';
 
 import withLoader from '@components/WithLoader';
