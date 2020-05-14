@@ -7,14 +7,14 @@ import styles from './styles';
 
 interface CommentsProps {
   comments: {
-    id: number,
-    username: string,
-    comment: string,
-    imageUrl?: string,
-  }[]
+    id: number;
+    username: string;
+    comment: string;
+    imageUrl?: string;
+  }[];
 }
 
-function CommentSection({ comments } : CommentsProps) {
+function CommentSection({ comments }: CommentsProps) {
   const renderComment = useCallback(
     (item) => (
       <Comment

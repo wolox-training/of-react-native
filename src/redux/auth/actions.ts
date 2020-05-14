@@ -1,3 +1,5 @@
+import { Dispatch } from 'redux';
+
 import { login, setToken, removeToken } from '@services/AuthService';
 import api from '@config/api';
 
@@ -10,7 +12,7 @@ export const actions = {
 };
 
 export const actionsCreators = {
-  signIn: (email, password) => async (dispatch) => {
+  signIn: (email : string, password : string) => async (dispatch : Dispatch) => {
     dispatch({ type: actions.SIGN_IN });
     const response = await login(email, password);
     if (response.ok) {
@@ -18,15 +20,15 @@ export const actionsCreators = {
       dispatch(actionsCreators.signInSuccess(response?.headers['access-token']));
     } else dispatch(actionsCreators.signInFailure(response.problem));
   },
-  signInSuccess: (token) => ({
+  signInSuccess: (token : string) => ({
     type: actions.SIGN_IN_SUCCESS,
     payload: token
   }),
-  signInFailure: (problem) => ({
+  signInFailure: (problem : string) => ({
     type: actions.SIGN_IN_FAILURE,
     payload: problem
   }),
-  saveCurrentToken: (token) => {
+  saveCurrentToken: (token : string) => {
     api.setHeader('Authorization', token);
     return { type: actions.SAVE_CURENT_TOKEN, payload: token };
   },

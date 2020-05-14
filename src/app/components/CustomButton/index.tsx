@@ -1,4 +1,4 @@
-import React, { ReactChild, ReactNode } from 'react';
+import React from 'react';
 import { Text, TouchableOpacity, GestureResponderEvent } from 'react-native';
 
 import withLoader from '@components/WithLoader';
@@ -10,14 +10,14 @@ export interface ButtonProps {
   loaderColor: string;
   disable: boolean;
   loading: boolean;
-  onPress: (event: GestureResponderEvent) => void,
+  onPress: (event: GestureResponderEvent) => void;
   textStyle: object;
   style: object;
 }
 
 const LoadableText = withLoader(Text);
 
-function CustomButton({ text, onPress, style, textStyle, disable, loading, loaderColor } : ButtonProps) {
+function CustomButton({ text, onPress, style, textStyle, disable, loading, loaderColor }: ButtonProps) {
   return (
     <TouchableOpacity style={[styles.button, style]} onPress={onPress} disabled={disable}>
       <LoadableText loading={loading} size="small" color={loaderColor} style={[styles.buttonText, textStyle]}>

@@ -9,7 +9,7 @@ interface CommentProps {
   user: string;
 }
 
-function Comment({ image, text, user } : CommentProps) {
+function Comment({ image, text, user }: CommentProps) {
   return (
     <View style={styles.container}>
       <Image source={{ uri: image }} style={styles.image} />
