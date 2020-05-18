@@ -5,8 +5,7 @@ import { StackHeaderProps } from '@react-navigation/stack/lib/typescript/src/typ
 
 import { COLORS } from '@constants/colors';
 
-
-function CustomHeader(props : StackHeaderProps) {
+function CustomHeader(props: StackHeaderProps) {
   return (
     <SafeAreaView>
       <StatusBar backgroundColor={COLORS.blue} />

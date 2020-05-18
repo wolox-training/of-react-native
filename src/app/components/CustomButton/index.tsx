@@ -20,7 +20,11 @@ const LoadableText = withLoader(Text);
 function CustomButton({ text, onPress, style, textStyle, disable, loading, loaderColor }: ButtonProps) {
   return (
     <TouchableOpacity style={[styles.button, style]} onPress={onPress} disabled={disable}>
-      <LoadableText loading={!!loading} size="small" color={loaderColor} style={[styles.buttonText, textStyle]}>
+      <LoadableText
+        loading={!!loading}
+        size="small"
+        color={loaderColor}
+        style={[styles.buttonText, textStyle]}>
         {text}
       </LoadableText>
     </TouchableOpacity>

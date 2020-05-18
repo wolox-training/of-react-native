@@ -7,7 +7,7 @@ interface IconImageProps {
   source: number;
 }
 
-function IconImage({ source } : IconImageProps) {
+function IconImage({ source }: IconImageProps) {
   return <Image source={source} style={styles.image} />;
 }
 

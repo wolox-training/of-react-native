@@ -10,7 +10,7 @@ interface TabBarIconProps {
   size: number;
 }
 
-function TabBarIcon({ active, inactive, focused, size } : TabBarIconProps) {
+function TabBarIcon({ active, inactive, focused, size }: TabBarIconProps) {
   return (
     <Image
       source={focused ? active : inactive}

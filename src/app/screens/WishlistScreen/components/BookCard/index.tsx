@@ -9,7 +9,7 @@ interface BookCardProps {
   author: string;
 }
 
-function BookCard({ image, title, author } : BookCardProps) {
+function BookCard({ image, title, author }: BookCardProps) {
   return (
     <View style={styles.book}>
       <Image source={{ uri: image }} style={styles.image} />

@@ -12,24 +12,24 @@ export const actions = {
 };
 
 export const actionsCreators = {
-  signIn: (email : string, password : string) => async (dispatch : Dispatch) => {
+  signIn: (email: string, password: string) => async (dispatch: Dispatch) => {
     dispatch({ type: actions.SIGN_IN });
     const response = await login(email, password);
     if (response.ok) {
-      const  headers  = response.headers as { 'access-token': string };
+      const headers = response.headers as { 'access-token': string };
       setToken(headers['access-token']);
       dispatch(actionsCreators.signInSuccess(headers['access-token']));
     } else dispatch(actionsCreators.signInFailure(response.problem));
   },
-  signInSuccess: (token : string) => ({
+  signInSuccess: (token: string) => ({
     type: actions.SIGN_IN_SUCCESS,
     payload: token
   }),
-  signInFailure: (problem : string) => ({
+  signInFailure: (problem: string) => ({
     type: actions.SIGN_IN_FAILURE,
     payload: problem
   }),
-  saveCurrentToken: (token : string) => {
+  saveCurrentToken: (token: string) => {
     api.setHeader('Authorization', token);
     return { type: actions.SAVE_CURENT_TOKEN, payload: token };
   },
