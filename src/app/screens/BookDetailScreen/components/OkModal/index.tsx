@@ -4,6 +4,7 @@ import { Modal, Text, View, Image, Button, GestureResponderEvent } from 'react-n
 import check from '@assets/General/check.gif';
 import { COLORS } from '@constants/colors';
 import styles from './styles';
+import CustomButton from '@components/CustomButton';
 
 interface ModalProps {
   visible: boolean;
@@ -17,7 +18,16 @@ function OkModal({ visible, onPress } : ModalProps) {
         <Image style={styles.gif} source={check} />
         <Text style={styles.title}>Added to wishlist!</Text>
       </View>
-      <Button style={styles.button} onPress={onPress} title="GO TO WISHLIST" color={COLORS.blue} />
+      <View>
+      <CustomButton
+        text="GO TO WISHLIST"
+        style={styles.button}
+        textStyle={styles.buttonText}
+        onPress={onPress}
+        loaderColor={COLORS.blue}
+      />
+      </View>
+      
     </Modal>
   );
 }

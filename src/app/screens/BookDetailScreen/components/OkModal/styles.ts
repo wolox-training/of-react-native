@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { COLORS } from '@constants/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,7 +18,12 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   button: {
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    backgroundColor: COLORS.blue,
+    borderRadius: 0
+  },
+  buttonText: {
+    color: COLORS.white
   }
 });
 

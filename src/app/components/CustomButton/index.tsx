@@ -8,10 +8,10 @@ import styles from './styles';
 export interface ButtonProps {
   text: string;
   loaderColor: string;
-  disable: boolean;
-  loading: boolean;
+  disable?: boolean;
+  loading?: boolean;
   onPress: (event: GestureResponderEvent) => void;
-  textStyle: object;
+  textStyle?: object;
   style: object;
 }
 
@@ -20,7 +20,7 @@ const LoadableText = withLoader(Text);
 function CustomButton({ text, onPress, style, textStyle, disable, loading, loaderColor }: ButtonProps) {
   return (
     <TouchableOpacity style={[styles.button, style]} onPress={onPress} disabled={disable}>
-      <LoadableText loading={loading} size="small" color={loaderColor} style={[styles.buttonText, textStyle]}>
+      <LoadableText loading={!!loading} size="small" color={loaderColor} style={[styles.buttonText, textStyle]}>
         {text}
       </LoadableText>
     </TouchableOpacity>

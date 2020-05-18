@@ -16,8 +16,9 @@ export const actionsCreators = {
     dispatch({ type: actions.SIGN_IN });
     const response = await login(email, password);
     if (response.ok) {
-      setToken(response?.headers['access-token']);
-      dispatch(actionsCreators.signInSuccess(response?.headers['access-token']));
+      const  headers  = response.headers as { 'access-token': string };
+      setToken(headers['access-token']);
+      dispatch(actionsCreators.signInSuccess(headers['access-token']));
     } else dispatch(actionsCreators.signInFailure(response.problem));
   },
   signInSuccess: (token : string) => ({
