@@ -7,12 +7,12 @@ import CustomButton from '@components/CustomButton';
 
 import styles from './styles';
 
-interface ModalProps {
+interface Props {
   visible: boolean;
   onPress: (event: GestureResponderEvent) => void;
 }
 
-function OkModal({ visible, onPress }: ModalProps) {
+function OkModal({ visible, onPress }: Props) {
   return (
     <Modal animationType="slide" transparent={false} visible={visible}>
       <View style={styles.container}>

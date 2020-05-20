@@ -3,11 +3,11 @@ import { Image } from 'react-native';
 
 import styles from './styles';
 
-interface IconImageProps {
+interface Props {
   source: number;
 }
 
-function IconImage({ source }: IconImageProps) {
+function IconImage({ source }: Props) {
   return <Image source={source} style={styles.image} />;
 }
 

@@ -5,7 +5,7 @@ import Comment from './components/Comment';
 
 import styles from './styles';
 
-interface CommentsProps {
+interface Props {
   comments: {
     id: number;
     username: string;
@@ -14,7 +14,7 @@ interface CommentsProps {
   }[];
 }
 
-function CommentSection({ comments }: CommentsProps) {
+function CommentSection({ comments }: Props) {
   const renderComment = useCallback(
     (item) => (
       <Comment

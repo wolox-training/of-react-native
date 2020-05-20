@@ -3,13 +3,13 @@ import { Text, View, Image } from 'react-native';
 
 import styles from './styles';
 
-interface CommentProps {
+interface Props {
   image: string;
   text: string;
   user: string;
 }
 
-function Comment({ image, text, user }: CommentProps) {
+function Comment({ image, text, user }: Props) {
   return (
     <View style={styles.container}>
       <Image source={{ uri: image }} style={styles.image} />

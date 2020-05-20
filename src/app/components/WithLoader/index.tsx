@@ -8,7 +8,7 @@ export interface LoaderProps {
   children?: ReactNode;
 }
 
-const withLoader = <P extends any>(Comp: ComponentType<P>) => ({
+const withLoader = <P extends {}>(Comp: ComponentType<P>) => ({
   loading,
   size,
   color,
