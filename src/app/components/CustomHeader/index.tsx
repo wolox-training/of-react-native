@@ -1,7 +1,6 @@
 import React from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
-import { Header } from '@react-navigation/stack';
-import { StackHeaderProps } from '@react-navigation/stack';
+import { Header, StackHeaderProps } from '@react-navigation/stack';
 
 import { COLORS } from '@constants/colors';
 
