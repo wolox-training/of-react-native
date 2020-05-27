@@ -3,13 +3,13 @@ import { Text, View, Image } from 'react-native';
 
 import styles from './styles';
 
-export interface BookProps {
+export interface Props {
   image: string;
   title: string;
   author: string;
 }
 
-function Book({ image, title, author }: BookProps) {
+function Book({ image, title, author }: Props) {
   return (
     <View style={styles.book}>
       <Image source={{ uri: image }} style={styles.image} />

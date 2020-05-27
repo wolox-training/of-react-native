@@ -1,10 +1,15 @@
 import React from 'react';
-import { string } from 'prop-types';
 import { Text, View, Image } from 'react-native';
 
 import styles from './styles';
 
-function BookCard({ image, title, author }) {
+interface Props {
+  image?: string;
+  title: string;
+  author: string;
+}
+
+function BookCard({ image, title, author }: Props) {
   return (
     <View style={styles.book}>
       <Image source={{ uri: image }} style={styles.image} />
@@ -20,12 +25,6 @@ BookCard.defaultProps = {
   image: 'http://wolox-training.s3.amazonaws.com/uploads/6942334-M.jpg',
   title: '',
   author: ''
-};
-
-BookCard.propTypes = {
-  image: string,
-  title: string.isRequired,
-  author: string.isRequired
 };
 
 export default BookCard;

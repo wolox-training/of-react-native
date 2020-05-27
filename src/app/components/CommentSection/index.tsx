@@ -1,13 +1,20 @@
 import React, { useCallback } from 'react';
-import { arrayOf } from 'prop-types';
 import { View } from 'react-native';
 
-import { commentProps } from '@propTypes/comment';
 import Comment from './components/Comment';
 
 import styles from './styles';
 
-function CommentSection({ comments }) {
+interface Props {
+  comments: {
+    id: number;
+    username: string;
+    comment: string;
+    imageUrl?: string;
+  }[];
+}
+
+function CommentSection({ comments }: Props) {
   const renderComment = useCallback(
     (item) => (
       <Comment
@@ -22,9 +29,5 @@ function CommentSection({ comments }) {
 
   return <View style={styles.container}>{comments.map((item) => renderComment(item))}</View>;
 }
-
-CommentSection.propTypes = {
-  comments: arrayOf(commentProps).isRequired
-};
 
 export default CommentSection;
