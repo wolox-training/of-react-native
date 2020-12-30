@@ -13,7 +13,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 10
-    - name: Run Lint
+    - name: Run Lint1
       run: |
         yarn
         yarn run lint
